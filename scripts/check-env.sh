@@ -11,8 +11,8 @@ else
   exit 1
 fi
 
-# 2. Vérifier qu'aucun fichier .env n'est tracké par git
-TRACKED_ENV=$(git ls-files | grep -E '^\.env$|^\.env\.' || true)
+# 2. Vérifier qu'aucun fichier .env n'est tracké par git (sauf .env.example)
+TRACKED_ENV=$(git ls-files | grep -E '^\.env$|^\.env\.' | grep -v '^\.env\.example$' || true)
 if [ -z "$TRACKED_ENV" ]; then
   echo "[PASS] No .env files tracked by git"
 else
