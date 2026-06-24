@@ -59,12 +59,12 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 })
 
 const originalSetInterval = window.setInterval
-const intervals = new Set<ReturnType<typeof setInterval>>()
+const intervals = new Set<number>()
 Object.defineProperty(window, 'setInterval', {
   writable: true,
   value: ((handler: TimerHandler, timeout?: number, ...args: unknown[]) => {
     const id = originalSetInterval(handler, timeout, ...args)
-    intervals.add(id)
+    intervals.add(id as unknown as number)
     return id
   }) as typeof window.setInterval,
 })
@@ -72,7 +72,7 @@ Object.defineProperty(window, 'setInterval', {
 const originalClearInterval = window.clearInterval
 Object.defineProperty(window, 'clearInterval', {
   writable: true,
-  value: (id: number | undefined) => {
+  value: (id: number) => {
     intervals.delete(id)
     originalClearInterval(id)
   },
