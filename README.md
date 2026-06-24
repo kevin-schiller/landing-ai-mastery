@@ -15,13 +15,13 @@ Construite avec Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4 e
 
 ## Stack
 
-| Technologie         | Version |
-| ------------------- | ------- |
-| Next.js (App Router)| 16.2.9  |
-| React               | 19.2.4  |
-| TypeScript          | 5.x     |
-| Tailwind CSS        | 4.x     |
-| Framer Motion       | 12.x    |
+| Technologie              | Version  |
+| ------------------------ | -------- |
+| Next.js (App Router)     | 16.2.9   |
+| React                    | 19.2.4   |
+| TypeScript               | 5.x      |
+| Tailwind CSS             | 4.x      |
+| Framer Motion            | 12.x     |
 | Vitest + Testing Library | 3.x / 16 |
 
 ## Scripts
