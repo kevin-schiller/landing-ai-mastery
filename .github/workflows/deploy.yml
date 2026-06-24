@@ -14,6 +14,7 @@ jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
       packages: write
@@ -32,7 +33,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1
@@ -51,3 +54,5 @@ jobs:
               --restart unless-stopped \
               -p 9090:3000 \
               ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            sleep 5
+            curl -sf http://localhost:9090 || exit 1
