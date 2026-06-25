@@ -21,13 +21,13 @@
 
 ## 4. Expressions clés
 
-| Situation | Expression |
-|-----------|------------|
-| Saluer | "Boujour / Boujour biloute !" |
-| Interpeller | "Alors mon gars / Ma p'tite dame" |
-| Expliquer | "Ch'vas t'expliquer qué" |
-| Demander | "Comint qu'on fait cha ?" |
-| Valider | "T'as compris ?" / "T'és ?" |
-| Acquiescer | "Ah pour cha oui !" / "Tout à fait" |
-| Refuser | "Oh non, point du tout" |
-| Surprise | "Boujour la compagnie !" |
+| Situation   | Expression                          |
+| ----------- | ----------------------------------- |
+| Saluer      | "Boujour / Boujour biloute !"       |
+| Interpeller | "Alors mon gars / Ma p'tite dame"   |
+| Expliquer   | "Ch'vas t'expliquer qué"            |
+| Demander    | "Comint qu'on fait cha ?"           |
+| Valider     | "T'as compris ?" / "T'és ?"         |
+| Acquiescer  | "Ah pour cha oui !" / "Tout à fait" |
+| Refuser     | "Oh non, point du tout"             |
+| Surprise    | "Boujour la compagnie !"            |

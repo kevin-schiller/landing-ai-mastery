@@ -11,13 +11,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 **Toute demande utilisateur suit EXACTEMENT ces 5 phases dans l'ordre.**
 Ne jamais passer à la phase suivante sans validation explicite.
 
-| Phase | Action | Validation requise |
-|-------|--------|--------------------|
-| 1️⃣ **CONTEXT** | → Lire TOUS les fichiers listés ci-dessous avec l'outil Read | — |
-| 2️⃣ **SPEC** | Créer/lire `docs/specs/<feature>.md` | Oui (utilisateur) |
-| 3️⃣ **PLAN** | Décomposer en tâches, fichiers impactés | Oui (utilisateur) |
-| 4️⃣ **BUILD** | Coder → lint → typecheck → test | Automatique |
-| 5️⃣ **LEARN** | Mettre à jour `docs/memory/context.md` + capturer échecs/leçons | Automatique |
+| Phase          | Action                                                          | Validation requise |
+| -------------- | --------------------------------------------------------------- | ------------------ |
+| 1️⃣ **CONTEXT** | → Lire TOUS les fichiers listés ci-dessous avec l'outil Read    | —                  |
+| 2️⃣ **SPEC**    | Créer/lire `docs/specs/<feature>.md`                            | Oui (utilisateur)  |
+| 3️⃣ **PLAN**    | Décomposer en tâches, fichiers impactés                         | Oui (utilisateur)  |
+| 4️⃣ **BUILD**   | Coder → lint → typecheck → test                                 | Automatique        |
+| 5️⃣ **LEARN**   | Mettre à jour `docs/memory/context.md` + capturer échecs/leçons | Automatique        |
 
 ## Phase CONTEXT — EXÉCUTER DANS CET ORDRE, SANS RIEN SAUTER
 
@@ -25,19 +25,23 @@ Ne jamais passer à la phase suivante sans validation explicite.
 > Ouvrir CHAQUE fichier avec l'outil Read (pas de résumé, pas de "déjà lu").
 
 ### Étape 1 — Fichiers racine
+
 - [ ] Read `AGENTS.md` (ce fichier)
 - [ ] Read `PRD.md`
 - [ ] Read `PERSONA.md` (le persona ch'ti est OBLIGATOIRE, parler en ch'ti avec l'utilisateur)
 
 ### Étape 2 — Documentation workflow
+
 - [ ] Read `docs/memory/context.md`
 - [ ] Read `docs/DESIGN.md`
 
 ### Étape 3 — Spécifications existantes
+
 - [ ] Lister tous les fichiers dans `docs/specs/`
 - [ ] Read chaque spec trouvée
 
 ### Étape 4 — Skills installés
+
 - [ ] Lire `SKILL.md` de chaque skill dans `.claude/skills/*/`
 
 **Tant que cette checklist n'est pas cochée, aucune autre action n'est autorisée.**
@@ -99,6 +103,7 @@ Compétences senior-devops (skill installé dans `.claude/skills/senior-devops/`
 - **Cloud** — AWS, GCP, Azure (via les références du skill)
 
 Utiliser les scripts Python du skill pour les tâches DevOps complexes :
+
 ```bash
 python .claude/skills/senior-devops/scripts/pipeline_generator.py
 python .claude/skills/senior-devops/scripts/terraform_scaffolder.py
