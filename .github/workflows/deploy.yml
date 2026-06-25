@@ -46,6 +46,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_SSH_PORT }}
+          envs: GHCR_PAT
           script: |
             echo "$GHCR_PAT" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
