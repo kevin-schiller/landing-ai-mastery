@@ -128,6 +128,7 @@ python .claude/skills/senior-frontend/scripts/frontend_scaffolder.py
 ```
 
 Guides disponibles dans `.claude/skills/senior-frontend/references/` :
+
 - `react_patterns.md` — patterns et anti-patterns React
 - `nextjs_optimization_guide.md` — optimisation Next.js
 - `frontend_best_practices.md` — bonnes pratiques générales
