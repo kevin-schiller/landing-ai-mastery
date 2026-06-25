@@ -39,20 +39,32 @@ jobs:
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1
+        env:
+          GHCR_PAT: ${{ secrets.GHCR_PAT }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_SSH_PORT }}
           script: |
-            echo ${{ secrets.GHCR_PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+            echo "$GHCR_PAT" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+            # Blue-green: démarrer le nouveau container sur un port temporaire
+            docker run -d \
+              --name ai-mastery-new \
+              --restart unless-stopped \
+              -p 9091:3000 \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+            # Health check progressif
+            for i in $(seq 1 10); do
+              curl -sf http://localhost:9091 && break
+              sleep 2
+            done
+
+            # Bascule : arrêter l'ancien, renommer le nouveau
             docker stop ai-mastery || true
             docker rm ai-mastery || true
-            docker run -d \
-              --name ai-mastery \
-              --restart unless-stopped \
-              -p 9090:3000 \
-              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-            sleep 5
+            docker rename ai-mastery-new ai-mastery
             curl -sf http://localhost:9090 || exit 1
