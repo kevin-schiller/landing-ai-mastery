@@ -42,6 +42,17 @@ npm run test:coverage  # Rapport de couverture
 ## Structure
 
 ```
+AGENTS.md                       # Règles pour l'IA (workflow, conventions)
+PRD.md                          # Contexte produit
+PERSONA.md                      # Persona de l'assistant (ch'ti)
+Dockerfile                      # Multi-stage (node:20-alpine)
+.github/workflows/
+├── ci.yml                      # Lint → typecheck → test → build (parallèle)
+└── deploy.yml                  # GHCR → Docker → VPS (port 9090)
+docs/
+├── specs/                      # Spécifications fonctionnelles
+└── memory/context.md           # Mémoire persistante (décisions, historique)
+.claude/skills/senior-devops/   # DevOps skill (scripts + guides)
 src/
 ├── app/                        # Routes App Router
 │   ├── page.tsx                # Accueil (Hero → CTA)
@@ -61,12 +72,7 @@ src/
 
 ## Tests
 
-**106 tests unitaires** — 20 fichiers, tout vert.
-
-- **Librairies** — `cn()`, intégrité données formations/témoignages, `getFormationBySlug()`
-- **Composants UI** — variantes, tailles, refs, événements
-- **Sections** — rendu et interactions (accordéon FAQ, menu mobile)
-- **Pages** — métadonnées, `generateStaticParams`, rendu complet
+**20 fichiers de test** — librairies, composants UI, sections, pages.
 
 ```bash
 npm run test
@@ -75,17 +81,29 @@ npm run test:coverage
 
 ## Prérequis
 
-- Node.js >= 20
+- Node.js >= 20 (lts/iron dans `.nvmrc`)
 
 ## Installation
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build      # Build production (output: standalone)
 ```
-
-Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ## Déploiement
 
-Déploiement recommandé sur [Vercel](https://vercel.com/).
+Déploiement automatisé via GitHub Actions sur VPS (Docker) :
+
+1. **CI** — lint, format:check, typecheck, test en parallèle, puis build
+2. **Build & Push** — image Docker multi-stage poussée sur GHCR
+3. **SSH Deploy** — pull, stop/rm, run avec `--restart unless-stopped`
+4. **Health check** — curl loop sur `localhost:9090`
+
+Secrets requis : `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`, `VPS_SSH_PORT`, `GHCR_PAT`
+
+```bash
+npm run build
+docker build -t ai-mastery .
+docker run -d --name ai-mastery -p 9090:3000 ai-mastery
+```
