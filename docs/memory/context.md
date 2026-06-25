@@ -14,7 +14,7 @@
 | 2026-06-25 | Restructuration AGENTS.md : Workflow déplacé en haut    | L'agent sautait la phase CONTEXT (noyée au milieu du fichier)  |
 | 2026-06-25 | Suppression docs/workflow.md (redondant avec AGENTS.md) | Évite dérive entre 2 sources de vérité et confusion agent      |
 | 2026-06-25 | Ajout checklist CONTEXT exhaustive dans AGENTS.md       | Forcer l'agent à Read chaque fichier avant toute action        |
-| 2026-06-25 | Suppression PERSONA.md + refs ch'ti dans tous les docs  | Retour à la personnalité par défaut de l'agent                |
+| 2026-06-25 | Suppression PERSONA.md + refs ch'ti dans tous les docs  | Retour à la personnalité par défaut de l'agent                 |
 
 ## Problèmes rencontrés
 
