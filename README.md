@@ -44,7 +44,6 @@ npm run test:coverage  # Rapport de couverture
 ```
 AGENTS.md                       # Règles pour l'IA (workflow, conventions)
 PRD.md                          # Contexte produit
-PERSONA.md                      # Persona de l'assistant (ch'ti)
 Dockerfile                      # Multi-stage (node:20-alpine)
 .github/workflows/
 ├── ci.yml                      # Lint → typecheck → test → build (parallèle)
