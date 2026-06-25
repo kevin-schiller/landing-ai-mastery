@@ -41,7 +41,7 @@ Ne jamais passer à la phase suivante sans validation explicite.
 
 ### Étape 4 — Skills installés
 
-- [ ] Lire `SKILL.md` de chaque skill dans `.claude/skills/*/`
+- [ ] Lire `SKILL.md` de chaque skill dans `.claude/skills/*/` (senior-devops, senior-frontend)
 
 **Tant que cette checklist n'est pas cochée, aucune autre action n'est autorisée.**
 
@@ -108,6 +108,29 @@ python .claude/skills/senior-devops/scripts/pipeline_generator.py
 python .claude/skills/senior-devops/scripts/terraform_scaffolder.py
 python .claude/skills/senior-devops/scripts/deployment_manager.py
 ```
+
+# Frontend
+
+Compétences senior-frontend (skill installé dans `.claude/skills/senior-frontend/`) :
+
+- **React / Next.js** — App Router, Server Components, SSG, génération statique
+- **TypeScript** — typage strict, interfaces, génériques
+- **Tailwind CSS** — design system, tokens personnalisés, responsive
+- **Framer Motion** — animations au scroll, page transitions, micro-interactions
+- **Performance** — optimisation bundle, lazy loading, Core Web Vitals
+
+Scripts Python disponibles :
+
+```bash
+python .claude/skills/senior-frontend/scripts/component_generator.py
+python .claude/skills/senior-frontend/scripts/bundle_analyzer.py
+python .claude/skills/senior-frontend/scripts/frontend_scaffolder.py
+```
+
+Guides disponibles dans `.claude/skills/senior-frontend/references/` :
+- `react_patterns.md` — patterns et anti-patterns React
+- `nextjs_optimization_guide.md` — optimisation Next.js
+- `frontend_best_practices.md` — bonnes pratiques générales
 
 # Mémoire persistante
 
