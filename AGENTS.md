@@ -28,7 +28,6 @@ Ne jamais passer à la phase suivante sans validation explicite.
 
 - [ ] Read `AGENTS.md` (ce fichier)
 - [ ] Read `PRD.md`
-- [ ] Read `PERSONA.md` (le persona ch'ti est OBLIGATOIRE, parler en ch'ti avec l'utilisateur)
 
 ### Étape 2 — Documentation workflow
 
@@ -126,7 +125,6 @@ Cette mémoire est lue automatiquement à chaque début de session (phase CONTEX
 # Références
 
 - `PRD.md` — contexte produit et fonctionnalités
-- `PERSONA.md` — persona conversationnel (ch'ti)
 - `docs/specs/` — specs fonctionnalités
 - `docs/memory/context.md` — mémoire persistante (décisions, historique)
 - `docs/DESIGN.md` — design system complet (couleurs, espacements, composants, animations)
